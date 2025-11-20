@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企業人力資源提升計畫 - 5W2H 互動說明會</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --success-color: #27ae60;
+            --error-color: #c0392b;
+            --bg-color: #f4f6f7;
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background: #ecf0f1;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Content Sections */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Cheat Sheet Styles */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background: #fff;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .highlight {
+            color: var(--error-color);
+            font-weight: bold;
+        }
+
+        /* Quiz Styles */
+        .question-box {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .option-btn {
+            padding: 12px;
+            text-align: left;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .option-btn:hover {
+            background-color: #eef;
+            border-color: var(--accent-color);
+        }
+
+        .option-btn.correct {
+            background-color: #d4edda;
+            border-color: var(--success-color);
+            color: var(--success-color);
+        }
+
+        .option-btn.wrong {
+            background-color: #f8d7da;
+            border-color: var(--error-color);
+            color: var(--error-color);
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            font-size: 0.95em;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>企業人力資源提升計畫</h1>
+        <div class="subtitle">5W2H 關鍵資訊互動說明</div>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('study')">📖 5W2H 重點速記</button>
+        <button class="tab-btn" onclick="switchTab('quiz')">🎮 觀念大挑戰</button>
+    </div>
+
+    <!-- Study Section -->
+    <div id="study" class="section active">
+        <div class="card-grid">
+            <div class="card">
+                <h3>Why (緣起)</h3>
+                <p>協助事業單位辦理在職進修，持續提升人力素質與競爭力，並落實就保基金運用。</p>
+            </div>
+            <div class="card">
+                <h3>Who (資格)</h3>
+                <p>民營事業、非營利法人/團體。</p>
+                <ul>
+                    <li>51人以上：直接符合。</li>
+                    <li>未滿51人：需具備 <span class="highlight">TTQS通過/合格</span>、曾獲國家級獎項、或小型企業計畫轉銜且具辦訓能力者。</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>What (補助類型)</h3>
+                <ul>
+                    <li><strong>個別型：</strong>1家申請 (上限95萬)。</li>
+                    <li><strong>聯合型：</strong>1家帶1家以上 (上限190萬)。</li>
+                    <li><strong>產業推升型：</strong>特定獲獎單位 (上限200萬)。</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>How Much (補助比率)</h3>
+                <ul>
+                    <li>一般課程：50%</li>
+                    <li>優先補助(70%)：29歲以下青年、中高齡、數位轉型(數位學習)、內部講師訓練、政策性課程。</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>When (時程)</h3>
+                <ul>
+                    <li><strong>申請：</strong>前一年度 12/1 - 12/31。</li>
+                    <li><strong>執行：</strong>1/1 - 11/25。</li>
+                    <li><strong>核銷：</strong>最晚 12/5 前申領。</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Process (重要規定)</h3>
+                <p>變更課程需於<span class="highlight">3個日曆天前</span>提出。訓練日次月10日前回報執行結果。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Section -->
+    <div id="quiz" class="section">
+        <div id="quiz-container">
+            <!-- Questions will be injected here by JS -->
+        </div>
+        <div class="nav-buttons">
+            <button class="btn" id="prev-btn" onclick="changeQuestion(-1)" disabled>上一題</button>
+            <span id="question-counter" style="align-self: center; font-weight: bold;"></span>
+            <button class="btn" id="next-btn" onclick="changeQuestion(1)">下一題</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Quiz Data based on the PDF
+    const questions = [
+        {
+            q: "【Who】某新創公司目前就業保險投保人數為 30 人，且從未申請過任何計畫也無 TTQS，請問他們符合申請資格嗎？",
+            options: [
+                "A. 符合，所有民營企業皆可申請",
+                "B. 不符合，未滿51人需具備 TTQS 通過或辦訓能力檢核合格等條件",
+                "C. 符合，只要補繳保證金即可",
+                "D. 不符合，必須滿100人才能申請"
+            ],
+            answer: 1, // Index of correct answer (B)
+            explanation: "依據申請資格：受僱勞工參加就業保險之人數未滿 51 人者，須具備 TTQS 評核通過、辦訓能力檢核合格、或曾獲國家級獎項等條件之一。"
+        },
+        {
+            q: "【How Much】申請「個別型訓練計畫」，其訓練費用最高補助額度是多少？",
+            options: [
+                "A. 50 萬元",
+                "B. 95 萬元",
+                "C. 190 萬元",
+                "D. 200 萬元"
+            ],
+            answer: 1,
+            explanation: "個別型訓練計畫最高補助 95 萬元；聯合型為 190 萬元；產業推升型為 200 萬元。"
+        },
+        {
+            q: "【When】請問下一年度的計畫受理申請期間為何？",
+            options: [
+                "A. 1月1日至1月31日",
+                "B. 隨到隨審，全年無休",
+                "C. 12月1日至12月31日",
+                "D. 11月1日至11月30日"
+            ],
+            answer: 2,
+            explanation: "依規定：每一年度 12月1日 起至 12月31日 止，受理下一年度事業單位申請本計畫。"
+        },
+        {
+            q: "【What】下列哪一種課程類型的補助比率可以提高至 70%？",
+            options: [
+                "A. 一般研發能力課程",
+                "B. 經營管理課程",
+                "C. 企業內部講師訓練課程或數位教材製作",
+                "D. 所有的外部訓練課程"
+            ],
+            answer: 2,
+            explanation: "外部訓練屬企業內部講師訓練、數位教材製作、政策性課程，或派訓對象為29歲以下/中高齡者，補助提高至 70%。"
+        },
+        {
+            q: "【How】如果課程因為颱風或突發狀況需要變更日期，最遲要在什麼時候提出？",
+            options: [
+                "A. 開課後補辦即可",
+                "B. 原定施訓日或提前施訓日起 3 個日曆天前",
+                "C. 原定施訓日當天",
+                "D. 不得變更"
+            ],
+            answer: 1,
+            explanation: "事業單位變更課程內容，須於訓練計畫原定施訓日或提前施訓日起 3 個日曆天前提出。"
+        },
+        {
+            q: "【What】關於「外部訓練」的規定，下列何者正確？",
+            options: [
+                "A. 相同訓練課程選派人數沒有限制",
+                "B. 相同訓練課程以選派 8 人為限",
+                "C. 外部訓練可以轉為內部訓練，經費不限",
+                "D. 外部訓練課程總班數不得超過總班數的 50%"
+            ],
+            answer: 1,
+            explanation: "外部訓練：申請事業單位選派其員工參加...相同訓練課程以選派 8 人為限。"
+        }
+    ];
+
+    let currentQuestion = 0;
+
+    function switchTab(tabId) {
+        document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+
+    function loadQuestion() {
+        const container = document.getElementById('quiz-container');
+        const q = questions[currentQuestion];
+        
+        let html = `
+            <div class="question-box">
+                <h3>Q${currentQuestion + 1}: ${q.q}</h3>
+                <div class="options">
+                    ${q.options.map((opt, index) => `
+                        <button class="option-btn" onclick="checkAnswer(this, ${index})">${opt}</button>
+                    `).join('')}
+                </div>
+                <div class="feedback" id="feedback-box"></div>
+            </div>
+        `;
+        
+        container.innerHTML = html;
+        updateButtons();
+    }
+
+    function checkAnswer(btn, index) {
+        // Prevent multiple clicks
+        const buttons = document.querySelectorAll('.option-btn');
+        buttons.forEach(b => b.disabled = true);
+
+        const q = questions[currentQuestion];
+        const feedbackBox = document.getElementById('feedback-box');
+
+        if (index === q.answer) {
+            btn.classList.add('correct');
+            feedbackBox.innerHTML = `<strong>✅ 答對了！</strong><br>${q.explanation}`;
+            feedbackBox.style.backgroundColor = "#d4edda";
+            feedbackBox.style.color = "#155724";
+        } else {
+            btn.classList.add('wrong');
+            // Highlight correct answer
+            buttons[q.answer].classList.add('correct');
+            feedbackBox.innerHTML = `<strong>❌ 答錯了！</strong><br>${q.explanation}`;
+            feedbackBox.style.backgroundColor = "#f8d7da";
+            feedbackBox.style.color = "#721c24";
+        }
+        feedbackBox.classList.add('show');
+    }
+
+    function changeQuestion(direction) {
+        currentQuestion += direction;
+        loadQuestion();
+    }
+
+    function updateButtons() {
+        document.getElementById('prev-btn').disabled = currentQuestion === 0;
+        document.getElementById('next-btn').disabled = currentQuestion === questions.length - 1;
+        document.getElementById('question-counter').innerText = `${currentQuestion + 1} / ${questions.length}`;
+    }
+
+    // Initialize
+    loadQuestion();
+
+</script>
+
+</body>
+</html>
